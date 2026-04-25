@@ -228,6 +228,7 @@ footer span{color:var(--accent)}
   transform-style: preserve-3d;
   animation: spinCube 10s infinite linear;
   transform-origin: center;
+  will-change: transform;
 }
 
 /* cube faces */
