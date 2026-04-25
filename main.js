@@ -48,14 +48,12 @@ if (cursor && ring) {
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-
   let W, H, particles = [];
 
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
-
   resize();
   window.addEventListener('resize', resize);
 
@@ -90,14 +88,11 @@ if (cursor && ring) {
     }
   }
 
-  for (let i = 0; i < 120; i++) {
-    particles.push(new Particle());
-  }
+  for (let i = 0; i < 120; i++) particles.push(new Particle());
 
   function connect() {
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
-
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
         const d = Math.sqrt(dx * dx + dy * dy);
@@ -116,12 +111,7 @@ if (cursor && ring) {
 
   function loop() {
     ctx.clearRect(0, 0, W, H);
-
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-
+    particles.forEach(p => { p.update(); p.draw(); });
     connect();
     requestAnimationFrame(loop);
   }
@@ -131,14 +121,13 @@ if (cursor && ring) {
 
 
 // =====================
-// ABOUT CANVAS (FIXED - THIS WAS MISSING)
+// ABOUT CANVAS
 // =====================
 (function () {
   const canvas = document.getElementById('about-canvas');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-
   let w, h;
 
   function resize() {
@@ -210,7 +199,7 @@ if (card && card.parentElement) {
 
 
 // =====================
-// FORM SUBMIT
+// FORM
 // =====================
 function handleSubmit(btn) {
   if (!btn) return;
@@ -228,7 +217,7 @@ function handleSubmit(btn) {
 
   emailjs.send("service_cyb3snj", "template_gx2c0tx", data)
     .then(() => {
-      btn.textContent = 'Message Sent! ✓';
+      btn.textContent = 'Message Sent ✓';
       btn.style.background = '#22c55e';
     })
     .catch(() => {
@@ -250,13 +239,11 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => {
-  observer.observe(el);
-});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 
 // =====================
-// NAV SCROLL BG
+// NAV BACKGROUND
 // =====================
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
@@ -270,7 +257,7 @@ window.addEventListener('scroll', () => {
 
 
 // =====================
-// HAMBURGER MENU
+// MOBILE MENU
 // =====================
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -282,14 +269,12 @@ if (hamburger && mobileMenu) {
 }
 
 function closeMobile() {
-  if (mobileMenu) {
-    mobileMenu.classList.remove('open');
-  }
+  mobileMenu?.classList.remove('open');
 }
 
 
 // =====================
-// ACTIVE NAV HIGHLIGHT
+// ACTIVE NAV
 // =====================
 const sections = document.querySelectorAll('section[id]');
 
@@ -303,20 +288,25 @@ window.addEventListener('scroll', () => {
   });
 
   document.querySelectorAll('.nav-links a').forEach(a => {
-    if (a.getAttribute('href') === "#" + cur) {
-      a.style.color = 'var(--text)';
-    } else {
-      a.style.color = '';
-    }
+    a.style.color =
+      a.getAttribute('href') === "#" + cur
+        ? 'var(--text)'
+        : '';
   });
 });
-const cube = document.querySelector('.cube');
 
-if (cube) {
-  const container = document.querySelector('.cube-container');
+
+// =====================
+// 3D CUBE 
+// =====================
+const cube = document.querySelector('.cube');
+const container = document.querySelector('.cube-container');
+
+if (cube && container) {
 
   container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
+
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
@@ -324,7 +314,8 @@ if (cube) {
     const rotateX = ((y / rect.height) - 0.5) * -40;
 
     cube.style.animation = "none";
-    cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    cube.style.transform =
+      `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
 
   container.addEventListener('mouseleave', () => {
