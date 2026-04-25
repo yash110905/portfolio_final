@@ -225,17 +225,19 @@ footer span{color:var(--accent)}
   width: 140px;
   height: 140px;
   position: relative;
+
   transform-style: preserve-3d;
   animation: spinCube 10s infinite linear;
   transform-origin: center;
-  will-change: transform;
 }
+
 
 /* cube faces */
 .face {
   position: absolute;
   width: 140px;
   height: 140px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,14 +245,14 @@ footer span{color:var(--accent)}
   font-family: 'Syne', sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--text);
+  color: white;
 
-  background: rgba(108, 99, 255, 0.12);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(108, 99, 255, 0.25);
+  border: 1px solid rgba(255,255,255,0.2);
   backdrop-filter: blur(12px);
-
   border-radius: 10px;
 }
+
 
 /* cube positioning */
 .front  { transform: rotateY(0deg) translateZ(70px); }
