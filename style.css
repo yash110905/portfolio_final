@@ -260,6 +260,6 @@ footer span{color:var(--accent)}
 
 /* animation */
 @keyframes spinCube {
-  from { transform: rotateX(0deg) rotateY(0deg); }
-  to   { transform: rotateX(720deg) rotateY(720deg); }
+  from { transform: rotateX(0deg) rotateY(180deg); }
+  to   { transform: rotateX(180deg) rotateY(360deg); }
 }
