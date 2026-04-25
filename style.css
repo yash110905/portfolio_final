@@ -243,7 +243,7 @@ footer span{color:var(--accent)}
   display: flex;
   align-items: center;
   justify-content: center;
-
+  backface-visibility: visible;
   font-family: 'Syne', sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
