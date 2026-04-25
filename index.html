@@ -214,7 +214,7 @@
     <div class="section-divider reveal"></div>
     <div class="projects-grid">
       <div class="project-card reveal">
-        <div class="project-preview"><img src="https://images.credly.com/size/680x680/images/70d71df5-f3dc-4380-9b9d-f22513a70417/CCNAITN__1_.png" alt="CRUD Application"><div class="project-overlay"><a href="https://github.com/yash110905/php-sem-2-project.git" class="view-btn" target="_blank">View Project →</a></div></div>
+        <div class="project-preview"><canvas id="proj1" width="400" height="200"></canvas><div class="project-overlay"><a href="https://www.credly.com/badges/8e484a65-2c7d-486f-9eff-85ec047794e4/public_url" class="view-btn">View Project →</a></div></div>
         <div class="project-info">
           <div class="project-type">Networking Lab Configurations</div>
           <h3>CISCO Networking</h3>
@@ -235,9 +235,17 @@
           </div>
         </div>
       </div>
-      <div class="project-preview"><img src="https://yash110905.github.io/1054project/student%20record.png" alt="Library Management System Preview" class="project-image"><div class="project-overlay"><a href="https://github.com/yash110905/python-project/blob/bc330a8ff5d130b4033a5f439b6052f062a538a8/README.md" class="view-btn">View Project →</a>
-  </div>
-</div>
+      <div class="project-card reveal">
+        <div class="project-preview"><canvas id="proj3" width="400" height="200"></canvas><div class="project-overlay"><a href="https://github.com/yash110905/python-project/blob/bc330a8ff5d130b4033a5f439b6052f062a538a8/README.md" class="view-btn">View Project →</a></div></div>
+        <div class="project-info">
+          <div class="project-type">Python Google Sheets API Integration</div>
+          <h3>Library Management System</h3>
+          <p>Built a library management system using Python integrated with Google Sheets API to manage book records, issue/return tracking, and data automation. Implemented efficient data handling and real-time updates using cloud-based spreadsheets.</p>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span><span class="tech-badge">Google Sheets API</span><span class="tech-badge">REST API</span><span class="tech-badge">Automation</span><span class="tech-badge">Data Management</span>
+          </div>
+        </div>
+      </div>
       <div class="project-card reveal">
         <div class="project-preview"><img src="https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/63fdf75ad4a978704fe9ac9c_CRUD++Preview.jpeg" alt="CRUD Application"><div class="project-overlay"><a href="https://github.com/yash110905/php-sem-2-project.git" class="view-btn" target="_blank">View Project →</a></div></div>
         <div class="project-info">
@@ -261,14 +269,14 @@
     <div class="section-divider reveal"></div>
     <div class="timeline">
       <div class="timeline-item reveal">
-      <div class="timeline-date">JUN 2025 – Present</div>
+      <div class="timeline-date">2025 – Present</div>
       <div class="timeline-role">Associate, Omni Department</div>
       <div class="timeline-company">Walmart · Canada</div>
       <div class="timeline-desc">Handled online order fulfillment by picking, packing, and staging items accurately and efficiently. Maintained high standards of customer service by ensuring timely order processing and resolving issues. Collaborated with team members to meet daily targets in a fast-paced retail environment.
     </div>
   </div>
       <div class="timeline-item reveal">
-      <div class="timeline-date">DEC 2025 - APR 2026</div>
+      <div class="timeline-date">2025 - 2026</div>
       <div class="timeline-role">Project: Java Spring Boot Application (Forage)</div>
       <div class="timeline-company">Forage Virtual Experience</div>
       <div class="timeline-desc">Completed a hands-on virtual experience building backend applications using Java and Spring Boot. Developed RESTful APIs, implemented business logic, and worked with data handling concepts. Gained practical experience in backend development and software design patterns.
@@ -284,7 +292,7 @@
       <h2 class="section-title reveal">Let's work <span>together</span></h2>
       <p class="reveal">Have a project in mind or want to discuss an opportunity? I'd love to hear from you.</p>
 
-      
+      <!-- ✅ changed div → form + submit handler -->
       <form class="contact-form reveal" onsubmit="event.preventDefault(); handleSubmit(this.querySelector('button'));">
         
         <div class="form-row">  
@@ -313,6 +321,7 @@
           <textarea id="message" placeholder="Tell me about your project..."></textarea>
         </div>
 
+        <!-- ✅ removed onclick (form handles submit now) -->
         <button type="submit" class="submit-btn">Send Message →</button>
       
       </form>
@@ -330,7 +339,7 @@
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
 
-        
+        <!-- ✅ fixed email link -->
         <a href="mailto:pyash4521@gmail.com" class="social-link" title="Email">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
