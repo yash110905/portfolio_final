@@ -326,10 +326,24 @@ function closeMobile() {
 function handleSubmit(btn) {
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Message Sent! ✓';
-    btn.style.background = '#22c55e';
-  }, 1200);
+
+  const data = {
+    first_name: document.querySelector('input[placeholder="John"]').value,
+    last_name: document.querySelector('input[placeholder="Doe"]').value,
+    email: document.querySelector('input[type="email"]').value,
+    subject: document.querySelector('input[placeholder="Project Discussion"]').value,
+    message: document.querySelector('textarea').value
+  };
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", data)
+    .then(() => {
+      btn.textContent = 'Message Sent! ✓';
+      btn.style.background = '#22c55e';
+    })
+    .catch(() => {
+      btn.textContent = 'Failed ❌';
+      btn.disabled = false;
+    });
 }
 
 
