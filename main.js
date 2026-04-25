@@ -105,7 +105,9 @@ document.querySelectorAll('a,button,.skill-pill,.project-card,.highlight-card').
 })();
 
 
-
+// =====================
+// 3D CARD TILT
+// =====================
 const card = document.getElementById('card3d');
 if (card) {
   card.parentElement.addEventListener('mousemove', e => {
@@ -120,6 +122,9 @@ if (card) {
 }
 
 
+// =====================
+// FORM SUBMIT (FIXED)
+// =====================
 function handleSubmit(btn) {
   btn.textContent = 'Sending...';
   btn.disabled = true;
@@ -144,7 +149,9 @@ function handleSubmit(btn) {
 }
 
 
-
+// =====================
+// SCROLL REVEAL
+// =====================
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -157,12 +164,18 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 
+// =====================
+// NAV SCROLL
+// =====================
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
   nav.style.background = window.scrollY > 50 ? 'rgba(5,5,8,0.92)' : 'rgba(5,5,8,0.6)';
 });
 
 
+// =====================
+// HAMBURGER
+// =====================
 document.getElementById('hamburger').addEventListener('click', () => {
   document.getElementById('mobile-menu').classList.toggle('open');
 });
@@ -172,7 +185,9 @@ function closeMobile() {
 }
 
 
-
+// =====================
+// SMOOTH NAV ACTIVE STATE
+// =====================
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
   let cur = '';
