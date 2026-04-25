@@ -215,7 +215,7 @@ footer span{color:var(--accent)}
 .cube-container {
   width: 300px;
   height: 300px;
-  perspective: 1000px;
+  perspective: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,6 +227,7 @@ footer span{color:var(--accent)}
   position: relative;
   transform-style: preserve-3d;
   animation: spinCube 10s infinite linear;
+  transform-origin: center;
 }
 
 /* cube faces */
@@ -260,6 +261,10 @@ footer span{color:var(--accent)}
 
 /* animation */
 @keyframes spinCube {
-  from { transform: rotateX(0deg) rotateY(180deg); }
-  to   { transform: rotateX(180deg) rotateY(360deg); }
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
 }
