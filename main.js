@@ -48,14 +48,16 @@ if (cursor && ring) {
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
+
   let W, H, particles = [];
 
   function resize() {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
   }
-  resize();
+
   window.addEventListener('resize', resize);
+  resize();
 
   class Particle {
     constructor() { this.reset(); }
@@ -88,7 +90,12 @@ if (cursor && ring) {
     }
   }
 
-  for (let i = 0; i < 120; i++) particles.push(new Particle());
+  function init() {
+    particles = [];
+    for (let i = 0; i < 120; i++) {
+      particles.push(new Particle());
+    }
+  }
 
   function connect() {
     for (let i = 0; i < particles.length; i++) {
@@ -111,14 +118,19 @@ if (cursor && ring) {
 
   function loop() {
     ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => { p.update(); p.draw(); });
+
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+
     connect();
     requestAnimationFrame(loop);
   }
 
+  init();
   loop();
 })();
-
 
 // =====================
 // ABOUT CANVAS
