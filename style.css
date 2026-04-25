@@ -19,7 +19,7 @@
 html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent) var(--bg)}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
 ::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-track{background:var(--bg)} 
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
 
 /* CANVAS */
@@ -201,4 +201,65 @@ footer span{color:var(--accent)}
   .form-row{grid-template-columns:1fr}
   .about-highlights{grid-template-columns:1fr}
   .hero-stats{gap:1.25rem}
+}
+/* ===================== */
+/* ABOUT 3D CUBE */
+/* ===================== */
+
+.about-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube-container {
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spinCube 10s infinite linear;
+}
+
+/* cube faces */
+.face {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+
+  background: rgba(108, 99, 255, 0.12);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+
+  border-radius: 10px;
+}
+
+/* cube positioning */
+.front  { transform: rotateY(0deg) translateZ(70px); }
+.back   { transform: rotateY(180deg) translateZ(70px); }
+.right  { transform: rotateY(90deg) translateZ(70px); }
+.left   { transform: rotateY(-90deg) translateZ(70px); }
+.top    { transform: rotateX(90deg) translateZ(70px); }
+.bottom { transform: rotateX(-90deg) translateZ(70px); }
+
+/* animation */
+@keyframes spinCube {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
 }

@@ -310,3 +310,25 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+const cube = document.querySelector('.cube');
+
+if (cube) {
+  const container = document.querySelector('.cube-container');
+
+  container.addEventListener('mousemove', (e) => {
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateY = ((x / rect.width) - 0.5) * 40;
+    const rotateX = ((y / rect.height) - 0.5) * -40;
+
+    cube.style.animation = "none";
+    cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    cube.style.animation = "spinCube 10s infinite linear";
+    cube.style.transform = "rotateX(0deg) rotateY(0deg)";
+  });
+}
