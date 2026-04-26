@@ -186,34 +186,8 @@ footer span{color:var(--accent)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero-inner{
-    grid-template-columns:1fr;
-    gap:3rem;
-  }
-
-  .hero-visual{
-    display:flex;
-    justify-content:center;
-  }
-
-  .card-3d{
-    transform:none !important;
-  }
-
-  .floating-orb{
-    display:none;
-  }
-
-  
-  .hero-card{
-    width:260px;
-    height:300px;
-  }
-
-  .card-bars span{
-    font-size:10px;
-  }
-
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-visual{display:none}
   .about-grid{grid-template-columns:1fr}
   .about-image-wrap{display:none}
   nav .nav-links{display:none}
