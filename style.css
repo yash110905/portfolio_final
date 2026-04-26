@@ -276,3 +276,13 @@ footer span{color:var(--accent)}
 .cube.pause {
   animation-play-state: paused;
 }
+.cursor,
+.cursor-ring {
+  will-change: transform;
+}
+@media (pointer: coarse) {
+  .cursor,
+  .cursor-ring {
+    display: none !important;
+  }
+}

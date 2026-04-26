@@ -1,44 +1,60 @@
 // =====================
-// CURSOR
+// CURSOR (FIXED + MOBILE SAFE)
 // =====================
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
 
-let mx = 0, my = 0, rx = 0, ry = 0;
+const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
-if (cursor && ring) {
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX;
-    my = e.clientY;
+if (!isTouchDevice) {
 
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
 
-  function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
+  let mx = 0, my = 0;
+  let rx = 0, ry = 0;
 
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
+  if (cursor && ring) {
 
-    requestAnimationFrame(animRing);
+    // Track mouse
+    document.addEventListener('mousemove', (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+
+      // instant cursor
+      cursor.style.transform = `translate(${mx}px, ${my}px)`;
+    });
+
+    // Smooth ring animation
+    function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+
+      ring.style.transform = `translate(${rx}px, ${ry}px)`;
+
+      requestAnimationFrame(animateRing);
+    }
+
+    animateRing();
+
+    // Hover effects
+    document.querySelectorAll('a,button,.skill-pill,.project-card,.highlight-card').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = `translate(${mx}px, ${my}px) scale(2)`;
+        ring.style.transform = `translate(${rx}px, ${ry}px) scale(1.5)`;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = `translate(${mx}px, ${my}px) scale(1)`;
+        ring.style.transform = `translate(${rx}px, ${ry}px) scale(1)`;
+      });
+    });
+
   }
-  animRing();
 
-  document.querySelectorAll('a,button,.skill-pill,.project-card,.highlight-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-      ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
-    });
-
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-      ring.style.transform = 'translate(-50%,-50%) scale(1)';
-    });
-  });
+} else {
+  // Remove cursor on mobile
+  document.getElementById('cursor')?.remove();
+  document.getElementById('cursor-ring')?.remove();
 }
-
 
 // =====================
 // PARTICLE BACKGROUND
